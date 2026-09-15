@@ -3,8 +3,9 @@ from data.io import read_from_json, write_to_json
 def add_city(city: dict, explorer_name: str):
     try:
         cities = read_from_json()
-        
-        cities.get(explorer_name, []).append(city)
+        cities[explorer_name] = cities.get(explorer_name, [])
+        cities[explorer_name].append(city)
+        print(cities)
         write_to_json(cities)
         return True
     except Exception as e:
@@ -30,16 +31,17 @@ def remove_city(id: int, explorer_name: str):
 
 def get_all_cities(explorer_name: str):
     try:
-        return read_from_json()[explorer_name]
+        return read_from_json().get(explorer_name, [])
     except Exception as e:
         print(e)
 
 def get_by_id(id: int, explorer_name: str):
     try: 
-        explorer_cities = read_from_json()[explorer_name]
-        cities_ids = list(map(lambda c: c["id"] ,explorer_cities))
-        index = cities_ids.index(id)
-        return explorer_cities[index]
+        explorer_cities = read_from_json().get(explorer_name, [])
+        for c in explorer_cities:
+            if c["id"] == id:
+                return c
+        return None
     except Exception as e:
         print(e)
 

@@ -1,0 +1,34 @@
+{
+  "simcha": [
+    {
+      "id": 5128581,
+      "name": "New York",
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "timezone": "America/New_York"
+    },
+    {
+      "id": 5128581,
+      "name": "New York",
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "timezone": "America/New_York"
+    },
+    {
+      "id": 5128581,
+      "name": "New York",
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "timezone": "America/New_York"
+    }
+  ],
+  "Yonni": [
+    {
+      "id": 5128581,
+      "name": "New York",
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "timezone": "America/New_York"
+    }
+  ]
+}

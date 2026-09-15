@@ -11,7 +11,8 @@ router = APIRouter(prefix="/cities", tags=["cities"])
 def find_city(city: Annotated[str, Query(min_length=2, max_length=20)],
               country: Annotated[str | None, Query( min_length=2, max_length=20)] = None):
     city_to_search = city + f",{country}" if country else city
-    res = requests.get(f"https://geocoding-api.open-meteo.com/v1/search", params={"name": city_to_search}).json()
+    res = requests.get(f"https://geocoding-api.open-meteo.com/v1/search", params={"name": city_to_search})
+    res = res.json()
     # print("============================================================")
     # print(res)
     # print("============================================================")

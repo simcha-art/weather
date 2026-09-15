@@ -2,10 +2,11 @@ import json
 FILE_PATH = "./favorites.json"
 
 
-def write_to_json(data: list[dicts]):
+def write_to_json(data: dict[list[dict]]):
     try:
         with open(FILE_PATH, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4)
+            json.dump(data, f, indent=2)
+            print(json.dumps(data))
     except Exception as e: 
         print(e)
 
@@ -16,8 +17,8 @@ def read_from_json():
             return json.load(f)
         
     except FileNotFoundError:
-        write_to_json([])
-        return []
+        write_to_json({})
+        return {}
 
     except PermissionError:
         print(f"permission to file {FILE_PATH} denied")
